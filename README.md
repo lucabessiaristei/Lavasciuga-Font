@@ -1,4 +1,9 @@
-# Lavasciuga
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="documentation/name-white.svg">
+  <source media="(prefers-color-scheme: light)" srcset="documentation/name-black.svg">
+  <img src="documentation/name-black.svg" alt="Lavasciuga">
+</picture>
+
 A hand-drawn unicase rounded sans-serif typeface, inspired by the warm, approachable aesthetic of consumer retail signage from the 1980s and 90s. Uppercase and lowercase letters share a uniform optical height; diacritics, descenders, and combining marks extend beyond this baseline as needed. Uniform stroke width, generous curves, and carefully tuned spacing make it equally at home on a gelato shop window or a laundromat facade.
 
 **Current version: 1.0.0**
