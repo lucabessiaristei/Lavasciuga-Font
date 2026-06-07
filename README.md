@@ -1,8 +1,20 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/name-white.svg">
-  <source media="(prefers-color-scheme: light)" srcset="documentation/name-black.svg">
-  <img src="documentation/name-black.svg" alt="Lavasciuga">
-</picture>
+<div>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="documentation/name_white.svg">
+    <source media="(prefers-color-scheme: light)" srcset="documentation/name_black.svg">
+    <img src="documentation/name_black.svg" alt="Lavasciuga" width="500">
+  </picture>
+</div>
+
+<div>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="documentation/nm_white.svg">
+    <source media="(prefers-color-scheme: light)" srcset="documentation/nm_black.svg">
+    <img src="documentation/nm_black.svg" alt="Lavasciuga" width="500" style="opacity: 0.7;">
+  </picture>
+</div>
+
+<br><br>
 
 A hand-drawn unicase rounded sans-serif typeface, inspired by the warm, approachable aesthetic of consumer retail signage from the 1980s and 90s. Uppercase and lowercase letters share a uniform optical height; diacritics, descenders, and combining marks extend beyond this baseline as needed. Uniform stroke width, generous curves, and carefully tuned spacing make it equally at home on a gelato shop window or a laundromat facade.
 
