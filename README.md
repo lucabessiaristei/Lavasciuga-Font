@@ -6,30 +6,35 @@
   </picture>
 </div>
 
-<div>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="documentation/nm_white.svg">
-    <source media="(prefers-color-scheme: light)" srcset="documentation/nm_black.svg">
-    <img src="documentation/nm_black.svg" alt="Lavasciuga" width="500" style="opacity: 0.7;">
-  </picture>
-</div>
+<br>
 
-<br><br>
+A unicase rounded sans-serif typeface inspired by the approachable lettering found on small retail storefronts of the 1980s and 1990s.
 
-A hand-drawn unicase rounded sans-serif typeface, inspired by the warm, approachable aesthetic of consumer retail signage from the 1980s and 90s. Uppercase and lowercase letters share a uniform optical height; diacritics, descenders, and combining marks extend beyond this baseline as needed. Uniform stroke width, generous curves, and carefully tuned spacing make it equally at home on a gelato shop window or a laundromat facade.
+To preserve its identity as a signage typeface, I designed it with a single optical height across all glyphs, favoring highly regular proportions and minimal width contrast. Diacritics, descenders, and extended marks break this height only when necessary, while punctuation and quotation marks remain contained within the cap height.
+
+Aiming to create an accessible and versatile typeface, I developed Lavasciuga with extended Cyrillic, extended Latin, and Greek character sets.
+
+The curves are soft and controlled, carefully crafted to convey a consistent stroke weight throughout. Spacing is deliberately tight, helping fill any of your laundromat or gelateria sign. All overlapping components have been flattened, allowing the typeface to work seamlessly in outline styles.
+
+The result is a friendly but structured typeface that reminds me of the small urban landscapes of Italy as I remember them from childhood.
+
 
 **Current version: 1.0.0**
+<br>
 
-## Glyph Coverage
+## Glyphs 3 Coverage
 
-**Latin:** Basic, Western European, Central European, South Eastern European, South American, Oceanian, Esperanto — complete. Pan African (101/223), Vietnamese (51/150), Sámi (43/46) — partial.
+**Latin:** Basic, Western European, Central European, South Eastern European, South American, Oceanian, Esperanto
 
-**Cyrillic:** Basic, Belarusian and Russian, Bulgarian, Bulgarian Italic, Historic Bulgarian, Serbian and Macedonian, Ukrainian, Adobe Extended — complete.
+**Cyrillic:** Basic, Belarusian and Russian, Bulgarian, Bulgarian Italic, Historic Bulgarian, Serbian and Macedonian, Ukrainian, Adobe Extended
+
+**Greek:** Basic
 
 ## Roadmap
-### v2
+### v1.5
 - Regular and Black weight + Variable
 - Sámi, Pan African and Vietnamese double accents
+- Polytonic and Coptic Greek
 - IPA
 
 ## License

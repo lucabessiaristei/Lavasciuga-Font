@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Glyphs backups
+*.glyphs~
+*.glyphx
+
+# Font build output (keep only final fonts in /fonts)
+instance_ufo/
+master_ufo/
+*.pyc
+__pycache__/
+
+# fontmake / fonttools temp
+*.vfb.bak
+*.otf.bak
+
+# Environment
+.venv/
+venv/
