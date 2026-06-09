@@ -31,6 +31,7 @@ The result is a friendly but structured typeface that reminds me of the small ur
 **Greek:** Basic
 
 ## Roadmap
+
 ### v1.5
 - Regular and Black weight + Variable
 - Sámi, Pan African and Vietnamese double accents
