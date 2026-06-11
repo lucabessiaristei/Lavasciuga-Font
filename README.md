@@ -19,7 +19,9 @@ The curves are soft and controlled, carefully crafted to convey a consistent str
 The result is a friendly but structured typeface that reminds me of the small urban landscapes of Italy as I remember them from childhood.
 
 
-**Current version: 1.0.0**
+**Current version: 1.0.0** · [View specimen](https://lucabessiaristei.github.io/Lavasciuga-Font/)
+
+
 <br>
 
 ## Glyphs 3 Coverage
