@@ -2,7 +2,7 @@
 .appVersion = "3526";
 .formatVersion = 3;
 DisplayStrings = (
-"/zero.numr ⁄/zero.dnom  /one.numr ⁄/one.dnom  /two.numr ⁄/two.dnom  /three.numr ⁄/three.dnom  /four.numr ⁄/four.dnom  /five.numr ⁄/five.dnom  /six.numr ⁄/six.dnom  /seven.numr ⁄/seven.dnom  /eight.numr ⁄/eight.dnom  /nine.numr ⁄/nine.dnom 
+"⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄
 
 ⁄½¼¾⅛⅜⁵⅝⅞
 
@@ -32,7 +32,7 @@ AVAWAYAT TAYAWAVA AFA",
 "<>",
 "≥",
 "^",
-"/zero.dnom",
+"",
 "₀",
 "₁",
 "₂",
@@ -43,7 +43,7 @@ AVAWAYAT TAYAWAVA AFA",
 "₇",
 "₈",
 "₉",
-"/two.dnom",
+"",
 "Ц",
 "Ъ",
 "Д",
@@ -55,11 +55,11 @@ AVAWAYAT TAYAWAVA AFA",
 "Į",
 "OǪ",
 "Ų",
-"/Lcommaaccent.loclMAH",
+"",
 "Ț",
 "Щ",
 "Ą",
-"/caroncomb.alt Ľ",
+"Ľ",
 "Ç",
 "DḐ",
 "̆",
@@ -84,7 +84,12 @@ AVAWAYAT TAYAWAVA AFA",
 "→",
 "→←",
 "←",
-"Ϗ"
+"Ϗ",
+"ʹ",
+"ʼ",
+"ˈ",
+"¦",
+""
 );
 customParameters = (
 {
@@ -22692,6 +22697,48 @@ width = 268;
 }
 );
 unicode = 699;
+},
+{
+glyphname = primemod;
+lastChange = "2026-06-10 16:43:47 +0000";
+layers = (
+{
+layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
+shapes = (
+{
+ref = quotesingle;
+}
+);
+width = 234;
+}
+);
+unicode = 697;
+},
+{
+glyphname = verticallinemod;
+lastChange = "2026-06-10 16:57:59 +0000";
+layers = (
+{
+layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
+shapes = (
+{
+closed = 1;
+nodes = (
+(178,600,ls),
+(178,706,o),
+(40,706,o),
+(40,600,cs),
+(40,348,ls),
+(40,244,o),
+(178,244,o),
+(178,348,cs)
+);
+}
+);
+width = 218;
+}
+);
+unicode = 712;
 },
 {
 export = 0;
