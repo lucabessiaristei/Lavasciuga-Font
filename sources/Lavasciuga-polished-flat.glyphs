@@ -1,6 +1,12 @@
 {
 .appVersion = "3526";
 .formatVersion = 3;
+DisplayStrings = (
+"Ľ",
+"ť",
+"ď",
+"ľ"
+);
 customParameters = (
 {
 name = "Use Typo Metrics";
@@ -3214,7 +3220,7 @@ unicode = 313;
 },
 {
 glyphname = Lcaron;
-lastChange = "2026-06-08 21:36:44 +0000";
+lastChange = "2026-06-11 17:57:05 +0000";
 layers = (
 {
 anchors = (
@@ -3241,9 +3247,17 @@ shapes = (
 ref = L;
 },
 {
-alignment = -1;
-pos = (262,0);
-ref = caroncomb.alt;
+closed = 1;
+nodes = (
+(302,316,o),
+(442,316,o),
+(442,418,cs),
+(442,602,ls),
+(442,704,o),
+(302,704,o),
+(302,604,cs),
+(302,416,ls)
+);
 }
 );
 width = 538;
@@ -6564,17 +6578,41 @@ unicode = 100;
 glyphname = dcaron;
 kernLeft = H;
 kernRight = O;
-lastChange = "2026-06-08 21:52:27 +0000";
+lastChange = "2026-06-11 17:57:58 +0000";
 layers = (
 {
+anchors = (
+{
+name = bottom;
+pos = (313.155,760);
+},
+{
+name = top;
+pos = (312,1000);
+}
+);
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
 ref = D;
 },
 {
-pos = (85.155,10);
-ref = caroncomb;
+closed = 1;
+nodes = (
+(151.155,1070,o),
+(59.155,964,o),
+(137.155,894,cs),
+(257.155,784,ls),
+(291.155,752,o),
+(333.155,752,o),
+(367.155,784,cs),
+(487.155,894,ls),
+(565.155,964,o),
+(471.155,1070,o),
+(387.155,988,cs),
+(313.155,916,l),
+(237.155,988,ls)
+);
 }
 );
 width = 676;
@@ -8482,10 +8520,14 @@ unicode = 359;
 glyphname = tcaron;
 kernLeft = T;
 kernRight = T;
-lastChange = "2026-06-08 21:52:27 +0000";
+lastChange = "2026-06-11 17:57:43 +0000";
 layers = (
 {
 anchors = (
+{
+name = bottom;
+pos = (301.155,760);
+},
 {
 name = top;
 pos = (322,680);
@@ -8497,8 +8539,22 @@ shapes = (
 ref = T;
 },
 {
-pos = (73.155,10);
-ref = caroncomb;
+closed = 1;
+nodes = (
+(139.155,1070,o),
+(47.155,964,o),
+(125.155,894,cs),
+(245.155,784,ls),
+(279.155,752,o),
+(321.155,752,o),
+(355.155,784,cs),
+(475.155,894,ls),
+(553.155,964,o),
+(459.155,1070,o),
+(375.155,988,cs),
+(301.155,916,l),
+(225.155,988,ls)
+);
 }
 );
 width = 598;
