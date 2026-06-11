@@ -1,96 +1,6 @@
 {
 .appVersion = "3526";
 .formatVersion = 3;
-DisplayStrings = (
-"⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄ ⁄
-
-⁄½¼¾⅛⅜⁵⅝⅞
-
-
-hey coOmMe vaL?JA0'
-
-orari trasporti
-destinazioni
-
--A—
--K-
--X-
--T-
-
-Пируш
-
-
-hoohhoĦAĦWĦҐ ĦALЬĦ VЛnLoJЬAWAHЬVAPVTДLTLXALLl'lŁЧvaVЦVЦTAOltjaWOholvhOCIAyATУVvwMFAhMvwtPTYTMJhoVattlгMØTato ytЛjahohoYAyyoalCBAWAOWO
-
-AVAavaA Anvedi lvAvvoLTe siaAmAom no taoAvolo ote
-hii
-
-HOAOH OAOA AOAOaoOoOOoo
-AOAOA OAOAO AGAQACAO
-ADADA DADAD
-AVAWAYAT TAYAWAVA AFA",
-"<>",
-"≥",
-"^",
-"",
-"₀",
-"₁",
-"₂",
-"₃",
-"₄",
-"₅",
-"₆",
-"₇",
-"₈",
-"₉",
-"",
-"Ц",
-"Ъ",
-"Д",
-"̈",
-"Ѣ",
-"ƏӚ",
-"A̧̨Ą",
-"EĘ",
-"Į",
-"OǪ",
-"Ų",
-"",
-"Ț",
-"Щ",
-"Ą",
-"Ľ",
-"Ç",
-"DḐ",
-"̆",
-"́",
-"̂",
-"˚",
-"́Á",
-"̋",
-"̀",
-"̌",
-"̊",
-"̃",
-"̄",
-"£",
-"%",
-"‰",
-"↘",
-"↓",
-"↙",
-"◌",
-"ς",
-"→",
-"→←",
-"←",
-"Ϗ",
-"ʹ",
-"ʼ",
-"ˈ",
-"¦",
-""
-);
 customParameters = (
 {
 name = "Use Typo Metrics";
@@ -374,7 +284,7 @@ value = "0";
 },
 {
 name = typoAscender;
-value = 1018;
+value = 1030;
 },
 {
 name = typoDescender;
@@ -398,11 +308,11 @@ value = 0;
 },
 {
 name = winAscent;
-value = 1050;
+value = 1051;
 },
 {
 name = winDescent;
-value = 372;
+value = 387;
 }
 );
 guides = (
@@ -21763,20 +21673,6 @@ width = 250;
 unicode = 900;
 },
 {
-glyphname = tonos.case;
-layers = (
-{
-layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
-shapes = (
-{
-ref = tonos;
-}
-);
-width = 250;
-}
-);
-},
-{
 glyphname = dieresistonos;
 lastChange = "2026-06-08 20:19:09 +0000";
 layers = (
@@ -21813,6 +21709,22 @@ width = 594;
 }
 );
 unicode = 901;
+},
+{
+export = 0;
+glyphname = tonos.case;
+lastChange = "2026-06-11 10:01:49 +0000";
+layers = (
+{
+layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
+shapes = (
+{
+ref = tonos;
+}
+);
+width = 250;
+}
+);
 },
 {
 glyphname = dieresiscomb;
