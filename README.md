@@ -1,59 +1,152 @@
-<div>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="documentation/name_white.svg">
-    <source media="(prefers-color-scheme: light)" srcset="documentation/name_black.svg">
-    <img src="documentation/name_black.svg" alt="Lavasciuga" width="500">
-  </picture>
-</div>
+<h1 align="center">Specimen Builder</h1>
 
-<br>
+Specimen Builder is a quick and easy way to build digital type specimens. It uses [Specimen Skeleton](https://github.com/kabisa/specimen-skeleton) as a base and builds on top of it with a theme design and some configuration. Specimen Skeleton is built using [Eleventy](https://www.11ty.dev/)
 
-A unicase rounded sans-serif typeface inspired by the approachable lettering found on small retail storefronts of the 1980s and 1990s.
+The design rationale for specimen builder comes from several months of design research into the effectiveness of digital type specimens. [You can read the final report of that research here](https://typespecimens.xyz/journal/specimen-research-insights/).
 
-To preserve its identity as a signage typeface, I designed it with a single optical height across all glyphs, favoring highly regular proportions and minimal width contrast. Diacritics, descenders, and extended marks break this height only when necessary, while punctuation and quotation marks remain contained within the cap height.
+### Requirements
+- This project requires Node.js >= 12 and [yarn](https://yarnpkg.com/).
+- It builds from *woff2* font files, either individual font files or variable fonts.
 
-Aiming to create an accessible and versatile typeface, I developed Lavasciuga with extended Cyrillic, extended Latin, and Greek character sets.
+### Getting started
+To get started, run the following commands from the root of the repo:
 
-The curves are soft and controlled, carefully crafted to convey a consistent stroke weight throughout. Spacing is deliberately tight, helping fill any of your laundromat or gelateria sign. All overlapping components have been flattened, allowing the typeface to work seamlessly in outline styles.
+- `yarn install`
+- `yarn start`
 
-The result is a friendly but structured typeface that reminds me of the small urban landscapes of Italy as I remember them from childhood.
+This will give you a basic specimen with the default content, configuration, and fonts.
+
+### Workflow for adding your own fonts
+
+#### Deleting the placeholder fonts
+- Delete the placegholder font files in `src/fonts`
+- Delete `src/_data/fontdata.json`
+- Delete the folder `src/_data/fonts`
+
+#### Add your own fonts
+- Add your font files to the `src/fonts` directory. They must be in woff2 format.
+- Run `yarn fontdata`
+- If you are using multiple font files, you can reorder the order in which the array has been generated in `src/_data/fontdata.json`. This will determine the order the font files will appear in the tester dropdown.
+
+#### Editing the placeholder content
+- Edit the site configuration in `src/_data/site.js`
+- Edit the content configuration in `src/_data/content.js`
+
+#### Editing the default 'main_id' variable
+- `main_id` is the variable that defines the font file for the whole specimen. It is defined in `src/index.html` in this line of code: `{% assign main_id = 0 %}`.
+- The '0' in this example corresponds to the first entry in the fontdata array in `src/_data/fontdata.json`.
+- To change the default font, simply change this variable to the item in the array starting with 0 for the first, 1 for the second etc.
+– So if I had an array of 8 font files, and I wanted my specimen to be in Regular – which is the fourth item in the array – then `main_id = 3`.
+
+#### Changing the design
+- If you'd like to change the colours, edit the variables in `src/css/theme.css`
+- Assign main variable if using multiple `.woff2` files. In `index.html`, on line 16,  change the `main_id` variable number to the number in the array generated in `_data/fontdata.json`. This will determine the loading font in the type tester.
+- `yarn start` - this will start the local development server, view at http://localhost:8080.
+
+<hr />
+
+### Information architecture
+
+The specimen produced by this tool has vertically stacked 'containers', from top to bottom, they are:
+1. *Navigation*. Containing the Light/Dark toggle.
+2. *Masthead*. Containing critical information regarding the typeface, in addition to large evaluative glyphs and a call to action to download the font.
+3. *Interactive Controls*. An important container for user evaluation. These controls automatically generate sliders and drop downs from either individual font files, or from variable font axis. Simple typesetting tools are available for the user to change alignment, size, and line height.
+4. *Specimen*. Containing several single words set in varying weights. These should be individualised per font.
+5. *Setting*. A container to demonstrate long-form content at various dense settings at sizes.
+6. *Character Grid*. A comprehensive categorised list of all characters within the fonts together with a large size preview.
+7. *Language*. A container displaying a list of supported languages.
+
+HTML files in `src/_includes/` correspond to each container.
+
+<hr />
+
+### Extending Specimen Builder
+
+You can extend the functionality of the specimens produced using Specimen Builder by simply editing the content or CSS. 
+
+#### Font styles
+
+When you ran `yarn fontdata`, Specimen Skeleton (remember: the system that is the foundation for Specimen Builder) produced font styles in a css file in `_src/css/font.css`. These can be used as utility classes for typesetting the 'specimen' or 'setting' containers.
 
 
-**Current version: 1.0.0** · [View specimen](https://lucabessiaristei.github.io/Lavasciuga-Font/)
+#### Design tokens
 
+Specimen Builder provides some simple utility classes in the design token CSS – `src/css/theme.css` – to fine-tune your typesetting. The following classes are available:
 
-<br>
+* Colours: Colours are available as CSS variables. Be mindful of the dark mode, and please ensure you provide sympathetic dark alternatives for every additional colour used.
+* Spacing: Specimen Builder provides em-based spacing units with the classes `.m-1u`, `.m-2u`, and `.p-1u`, `.p-2u` etc. Where u = 1em, m = margin, and p = padding.
+* Font weight. Several typesetting classes are available. eg `.italic`
+* Font size: A large range of em-based font sizes are available from `type-3xs`, to `.type-8xl`.
+* Line height. `.lh08` to `.lh14` represent line height values 0.8 to 1.4.
+* Alignment. `.align-centre`, `.align-left`, `.align-justify`, `.align-right`.
 
-## Glyphs 3 Coverage
+#### Reading direction
+If producing specimens for languages that read right to left, or top to bottom, you need to edit a variable in `_src/data/site.js` called 'direction' and change its value to either:
 
-**Latin:** Basic, Western European, Central European, South Eastern European, South American, Oceanian, Esperanto
+* Left to right: "ltr"
+* Right to left: "rtl"
+* Left to right, top to bottom: "ltrttb"
+* Right to left, top to bottom: "rtlttb"
 
-**Cyrillic:** Basic, Belarusian and Russian, Bulgarian, Bulgarian Italic, Historic Bulgarian, Serbian and Macedonian, Ukrainian, Adobe Extended
+These values will change the text blocks in each container.
 
-**Greek:** Basic
+### Extending Specimen Builder even further!
 
-<details>
-<summary>349 Latin languages</summary>
+[Specimen Skeleton](https://github.com/kabisa/specimen-skeleton) – the foundation on which Specimen Builder is built – provides us with some useful tools to extend the specimens even further:
 
-Acheron, Achinese, Acholi, Achuar-Shiwiar, Afar, Afrikaans, Aguaruna, Ahtna, Alekano, Aleut, Algonquin, Amahuaca, Amarakaeri, Amis, Anaang, Andaandi, Anuta, Ao Naga, Apinayé, Aragonese, Arbëreshë Albanian, Arvanitika Albanian, Asháninka, Ashéninka Perené, Asu (Tanzania), Atayal, Awetí, Balinese, Balkan Romani, Banjar, Bari, Basque, Batak Dairi, Batak Karo, Batak Mandailing, Batak Simalungun, Batak Toba, Bemba (Zambia), Bena (Tanzania), Bikol, Bislama, Borana-Arsi-Guji Oromo, Bosnian, Breton, Buginese, Candoshi-Shapra, Caquinte, Caribbean Hindustani, Cashibo-Cacataibo, Cashinahua, Catalan, Cebuano, Central Aymara, Central Kurdish, Central Nahuatl, Chachi, Chamorro, Chavacano, Chiga, Chiltepec Chinantec, Chokwe, Chuukese, Cimbrian, Cofán, Congo Swahili, Cook Islands Māori, Cornish, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dehu, Dimli, Dutch, Eastern Arrernte, Eastern Oromo, Embu, English, Ese Ejja, Esperanto, Faroese, Fijian, Filipino, Finnish, French, Friulian, Gagauz, Galician, Ganda, Garifuna, Ga’anda, German, Gheg Albanian, Gilbertese, Gooniyandi, Gourmanchéma, Guadeloupean Creole French, Gusii, Gwichʼin, Haitian, Hani, Hawaiian, Hiligaynon, Ho-Chunk, Hopi, Huastec, Hungarian, Hän, Icelandic, Ido, Iloko, Inari Sami, Indonesian, Interglossa, Interlingua, Interlingue, Irish, Istro Romanian, Italian, Ixcatlán Mazatec, Jamaican Creole English, Javanese, Jola-Fonyi, K'iche', Kabuverdianu, Kaingang, Kala Lagaw Ya, Kalaallisut, Kalenjin, Kamba (Kenya), Kaonde, Kaqchikel, Kara-Kalpak, Karelian, Kashubian, Kekchí, Kenzi/Mattokki, Khasi, Kikuyu, Kimbundu, Kinyarwanda, Kirmanjki, Kituba (DRC), Klingon, Kongo, Konzo, Kuanyama, Kven Finnish, Kölsch, Ladin, Ladino, Lakota, Latgalian, Ligurian, Lithuanian, Lojban, Lombard, Low German, Lower Sorbian, Lozi, Luba-Lulua, Lule Sami, Luo (Kenya and Tanzania), Luxembourgish, Macedo-Romanian, Makhuwa, Makhuwa-Meetto, Makonde, Makwe, Malagasy, Malaysian, Maltese, Mam, Mandinka, Mandjak, Mankanya, Manx, Maore Comorian, Maori, Mapudungun, Marshallese, Matsés, Mauritian Creole, Meriam Mir, Meru, Minangkabau, Mirandese, Mohawk, Montenegrin, Munsee, Murrinh-Patha, Muslim Tat, Mwani, Mískito, Naga Pidgin, Ndonga, Neapolitan, Ngazidja Comorian, Niuean, Nobiin, Nomatsiguenga, North Azerbaijani, North Marquesan, North Ndebele, Northern Kurdish, Northern Qiandong Miao, Northern Sami, Northern Uzbek, Northwestern Ojibwa, Norwegian, Novial, Nyanja, Nyankole, Occitan, Ojitlán Chinantec, Old Prussian, Orma, Oroqen, Otuho, Palauan, Paluan, Pampanga, Papantla Totonac, Papiamento, Paraguayan Guaraní, Pedi, Picard, Pichis Ashéninka, Piemontese, Pijin, Pintupi-Luritja, Pipil, Pite Sami, Pohnpeian, Polish, Portuguese, Potawatomi, Purepecha, Páez, Quechua, Romanian, Romansh, Rotokas, Rundi, Rwa, Samburu, Samoan, Sango, Sangu (Tanzania), Saramaccan, Sardinian, Scots, Scottish Gaelic, Sena, Serbian, Seri, Seselwa Creole French, Shambala, Shawnee, Shipibo-Conibo, Shona, Shuar, Sicilian, Silesian, Slovak, Slovenian, Soga, Somali, Soninke, South Azerbaijani, South Marquesan, South Ndebele, Southern Aymara, Southern Qiandong Miao, Southern Sami, Southern Sotho, Spanish, Sranan Tongo, Standard Estonian, Standard Latvian, Standard Malay, Sundanese, Swahili, Swati, Swedish, Swiss German, Tagalog, Tahitian, Taita, Talysh, Tedim Chin, Tetum, Tetun Dili, Tiv, Toba, Tojolabal, Tok Pisin, Tokelau, Toki Pona, Tonga (Tonga Islands), Tonga (Zambia), Tosk Albanian, Tsakhur, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvalu, Tzeltal, Tzotzil, Uab Meto, Umbundu, Ume Sami, Upper Guinea Crioulo, Upper Sorbian, Venetian, Veps, Vlax Romani, Volapük, Võro, Wallisian, Walloon, Walser, Wangaaybuwan-Ngiyambaa, Waorani, Waray (Philippines), Warlpiri, Wayuu, Welsh, West Central Oromo, Western Abnaki, Western Frisian, Wik-Mungkan, Wiradjuri, Wolof, Xavánte, Xhosa, Yanesha', Yao, Yapese, Yindjibarndi, Yucateco, Zulu, Zuni, Záparo
+#### Using assets
 
-</details>
+In HTML, to use an image from your `img` directory, use the following URL value with the relative path to your image:
 
-<details>
-<summary>88 Cyrillic languages</summary>
+`<img src="{% webpackAssetPath '../img/my_logo.svg' %}">`
 
-Abaza, Abkhazian, Adyghe, Aghul, Andi, Archi, Avaric, Bashkir, Belarusian, Bezhta, Budukh, Bulgarian, Central Siberian Yupik, Chamalal, Chechen, Chinese Buriat, Chukot, Chuvash, Crimean Tatar, Dargwa, Dido, Dolgan, Dungan, Eastern Mari, Erzya, Even, Evenki, Forest Enets, Halh Mongolian, Hunzib, Ingush, Itelmen, Judeo-Tat, Kabardian, Kalmyk, Karachay-Balkar, Karaim, Karata, Kazakh, Ket, Khakas, Khanty, Khinalugh, Kirghiz, Komi-Permyak, Komi-Zyrian, Koryak, Krymchak, Kumyk, Lak, Lezghian, Macedonian, Mansi, Moksha, Mongolian Buriat, Montenegrin, Muslim Tat, Nanai, Nenets, Nganasan, Nogai, North Azerbaijani, Northern Altai, Northern Yukaghir, Ossetian, Russian, Russian Buriat, Rusyn, Rutul, Selkup, Serbian, Shor, Shughni, Southern Altai, Southern Yukaghir, Tabassaran, Tajik, Tatar, Tsakhur, Tundra Enets, Tuvinian, Udi, Udmurt, Ukrainian, Urum, Western Mari, Yagnobi, Yakut
+If you want to inline an SVG image, use:
 
-</details>
+`{% include '../img/my_logo.svg' %}`
 
-## Roadmap
+or
 
-### v1.5
-- Regular and Black weight + Variable
-- Add Pan African and Vietnamese full coverage
-- Polytonic and Coptic Greek
-- IPA
+`{% webpackAssetContents 'img/my_logo.svg' %}`
 
-## License
-Lavasciuga is released under the [SIL Open Font License 1.1](https://openfontlicense.org/open-font-license-official-text/).
-You are free to use, study, modify, and redistribute this font, including in commercial projects. The font may not be sold by itself.
+In CSS, point to the file using the path relative to your CSS file:
+
+`background-image: url(../img/my_logo.svg);`
+
+In CSS, images below 8 KB will be inlined automatically. To force inlined or external, append `?inline` or `?external` respectively, e.g. `url(../img/my_logo.svg?external);`. Inlining in HTML files
+
+#### Am I in view?
+
+Simple example to stop CPU-melting animations when they're not in the viewport. Elements with the class `.am-i-in-view` will get a class `.in-view` when they're in the viewport, and have that class removed when they leave the viewport. Use this to start/stop heavy animations.
+
+Note: this can be repurposed for lazy loading images, pausing video, etc.
+
+<hr />
+
+## Converting ttf to woff2
+
+If you need to compress your `.ttf` font files to `.woff2`, you can use this handy utility from Google
+
+https://github.com/google/woff2
+
+If you're using homebrew on a Mac, you can install it with `brew install woff2`. It'll give you the tools woff2_decompress and woff2_compress.
+
+Use this one liner to compress all .ttf fonts in the current directory: `for f in *.ttf; do woff2_compress $f; done`
+
+## Content sources
+If you are creating specimens in multiple languages, you can use these resources for sourcing content:
+
+1. Rosetta's [Universal Specimen](https://universalspecimen.rosettatype.com)
+The Universal Specimen from Rosetta displays the Universal Declaraiton of Human Rights in multiple panels in 138 languages.
+
+2. Aksharamukha : [Script Converter](http://aksharamukha.appspot.com/texts/triratnanusmriti)
+This is an excellent resource for providing sample text – from old scriptures, or religious text – across many complex scripts and languages (including derivations).
+
+## More about Specimen Skeleton
+
+<p align="center">
+	<img width="175" height="175" src="https://user-images.githubusercontent.com/4570664/74532263-0db14500-4f2f-11ea-96e9-49bcb8699ebb.png">
+</p>
+
+[Specimen Skeleton](https://github.com/kabisa/specimen-skeleton) is an [Eleventy-based](https://www.11ty.dev/) specimen _boilerplate_. It helps you get a basic site up and running quickly, and offers you a few interactive elements to build your demos from.
+
+It will analyse your variable font and generate the CSS necessary _and_ all the sliders, so you'll hit the ground running!
