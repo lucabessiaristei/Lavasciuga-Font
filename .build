@@ -1,2 +1,7 @@
-
 fontmake -g "/Users/lucabessiaristei/Library/Mobile Documents/com~apple~CloudDocs/MAIN/PERSONAL/DESFUN/Gautte Font/Lavasciuga-repo/sources/Lavasciuga-polished-flat.glyphs" -i -o ttf --filter FlattenComponentsFilter --filter DecomposeTransformedComponentsFilter --output-dir "/Users/lucabessiaristei/Library/Mobile Documents/com~apple~CloudDocs/MAIN/PERSONAL/DESFUN/Gautte Font/Lavasciuga-repo/fonts/ttf"
+
+
+python3 - <<'PY'
+from fontTools.ttLib import TTFont
+f=TTFont('fonts/ttf/Lavasciuga-Bold.ttf')
+print('mkmk' in {r.FeatureTag for r in f['GPOS'].table.FeatureList.FeatureRecord})
