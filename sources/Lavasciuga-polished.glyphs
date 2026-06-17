@@ -100,7 +100,10 @@ den §235 sowie #35
 "A/zero.dnom",
 "T₀T",
 "A⁰A",
-"A¹A"
+"A¹A",
+"`",
+"ʼ",
+"ˈ"
 );
 customParameters = (
 {
@@ -30758,221 +30761,230 @@ width = 0;
 },
 {
 glyphname = dieresis;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (-2,0);
 ref = dieresiscomb;
 }
 );
-width = 0;
+width = 464;
 }
 );
 unicode = 168;
 },
 {
 glyphname = dotaccent;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (-11,0);
 ref = dotaccentcomb;
 }
 );
-width = 0;
+width = 214;
 }
 );
 unicode = 729;
 },
 {
 glyphname = grave;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (8.97,0);
 ref = gravecomb;
 }
 );
-width = 0;
+width = 317.26;
 }
 );
 unicode = 96;
 },
 {
 glyphname = acute;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (-0.81,0);
 ref = acutecomb;
 }
 );
-width = 0;
+width = 317.26;
 }
 );
 unicode = 180;
 },
 {
 glyphname = hungarumlaut;
-lastChange = "2026-06-08 20:19:09 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-pos = (-50,0);
+alignment = -1;
+pos = (-0.12,0);
 ref = hungarumlautcomb;
 }
 );
-width = 490;
+width = 488.12;
 }
 );
 unicode = 733;
 },
 {
 glyphname = circumflex;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
 ref = circumflexcomb;
 }
 );
-width = 0;
+width = 452.63;
 }
 );
 unicode = 710;
 },
 {
 glyphname = caron;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
 ref = caroncomb;
 }
 );
-width = 0;
+width = 452.63;
 }
 );
 unicode = 711;
 },
 {
 glyphname = breve;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
 ref = brevecomb;
 }
 );
-width = 0;
+width = 501.3;
 }
 );
 unicode = 728;
 },
 {
 glyphname = ring;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (-1,0);
 ref = ringcomb;
 }
 );
-width = 0;
+width = 360;
 }
 );
 unicode = 730;
 },
 {
 glyphname = tilde;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (4.04,0);
 ref = tildecomb;
 }
 );
-width = 0;
+width = 483.92;
 }
 );
 unicode = 732;
 },
 {
 glyphname = macron;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
 ref = macroncomb;
 }
 );
-width = 0;
+width = 504;
 }
 );
 unicode = 175;
 },
 {
 glyphname = cedilla;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (-0.5,0);
 ref = cedillacomb;
 }
 );
-width = 0;
+width = 296.5;
 }
 );
 unicode = 184;
 },
 {
 glyphname = ogonek;
-lastChange = "2026-06-17 17:36:31 +0000";
+lastChange = "2026-06-17 19:49:14 +0000";
 layers = (
 {
 layerId = "FDF8D1BA-B4CE-4A91-B9C2-23316F7DE4E8";
 shapes = (
 {
-alignment = 1;
+alignment = -1;
+pos = (-1,0);
 ref = ogonekcomb;
 }
 );
-width = 0;
+width = 296.5;
 }
 );
 unicode = 731;
