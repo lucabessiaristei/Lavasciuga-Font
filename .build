@@ -1,7 +1,65 @@
 fontmake -g "/Users/lucabessiaristei/Library/Mobile Documents/com~apple~CloudDocs/MAIN/PERSONAL/DESFUN/Gautte Font/Lavasciuga-repo/sources/Lavasciuga-polished-flat.glyphs" -i -o ttf --filter FlattenComponentsFilter --filter DecomposeTransformedComponentsFilter --output-dir "/Users/lucabessiaristei/Library/Mobile Documents/com~apple~CloudDocs/MAIN/PERSONAL/DESFUN/Gautte Font/Lavasciuga-repo/fonts/ttf"
 
 
-python3 - <<'PY'
-from fontTools.ttLib import TTFont
-f=TTFont('fonts/ttf/Lavasciuga-Bold.ttf')
-print('mkmk' in {r.FeatureTag for r in f['GPOS'].table.FeatureList.FeatureRecord})
+# Flatten "to-flat" + decompose "to-decompose" (selected master)
+from GlyphsApp import Glyphs, LINE
+import math
+
+font = Glyphs.font
+mid = font.selectedFontMaster.id
+
+flat_layers = [g.layers[mid] for g in font.glyphs if "to-flat" in g.tags]
+decomp_layers = [g.layers[mid] for g in font.glyphs if "to-decompose" in g.tags]
+
+COLINEAR_EPS = 1.5  # perp distance under which a line-line node counts as redundant
+
+def perp_dist(p, a, c):
+    dx, dy = c.x - a.x, c.y - a.y
+    L = math.hypot(dx, dy)
+    if L == 0:
+        return math.hypot(p.x - a.x, p.y - a.y)
+    return abs((p.x - a.x) * dy - (p.y - a.y) * dx) / L
+
+def remove_near_colinear(layer, eps=COLINEAR_EPS):
+    # remove line-line corner nodes within eps of the straight line between
+    # their neighbours: catches fontbakery near-colinear cases that
+    # cleanUpPaths leaves (above its own tolerance)
+    for path in layer.paths:
+        changed = True
+        while changed:
+            changed = False
+            nodes = path.nodes
+            n = len(nodes)
+            if n < 3:
+                break
+            for i in range(n):
+                b = nodes[i]
+                nxt = nodes[(i + 1) % n]
+                if b.type != LINE or nxt.type != LINE:
+                    continue  # need a line into b and a line out of b
+                prv = nodes[(i - 1) % n]
+                if perp_dist(b.position, prv.position, nxt.position) < eps:
+                    path.removeNodeCheckKeepShape_(b)
+                    changed = True
+                    break
+
+if not flat_layers and not decomp_layers:
+    print("No glyphs tagged to-flat or to-decompose.")
+else:
+    font.disableUpdateInterface()
+    try:
+        for layer in flat_layers:
+            layer.decomposeComponents()
+            layer.removeOverlap()
+            layer.roundCoordinates()
+            layer.removeOverlap()        # second pass merges duplicates after rounding
+            layer.cleanUpPaths()         # native tidy: coincident + redundant nodes
+            remove_near_colinear(layer)  # residual sub-tolerance colinear nodes
+            layer.correctPathDirection()
+            print("Flattened: %s" % layer.parent.name)
+        for layer in decomp_layers:
+            layer.decomposeComponents()
+            print("Decomposed: %s" % layer.parent.name)
+    finally:
+        font.enableUpdateInterface()
+    print("Done: %d flattened, %d decomposed." % (len(flat_layers), len(decomp_layers)))

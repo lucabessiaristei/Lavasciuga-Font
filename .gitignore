@@ -6,7 +6,7 @@
 # Glyphs backups
 *.glyphs~
 *.glyphx
-sources/Lavasciuga-polished-bk15062026.glyphs
+sources/Lavasciuga-polished-bk180626.glyphs
 
 # Font build output (keep only final fonts in /fonts)
 instance_ufo/
