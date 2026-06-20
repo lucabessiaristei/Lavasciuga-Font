@@ -1,0 +1,26 @@
+name: Deploy specimen
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'specimen/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build specimen
+        working-directory: specimen
+        run: |
+          corepack enable
+          yarn install --frozen-lockfile
+          yarn build
+      - name: Deploy to lavasciuga-specimen branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: specimen/_site
+          branch: lavasciuga-specimen
